@@ -1,0 +1,15 @@
+package com.global.hr.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.global.hr.entity.Role;
+import com.global.hr.reposetory.EmployeeRepo;
+
+@Service
+public class RoleService {
+
+	@Autowired
+	private Role role;
+	
+}

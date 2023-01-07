@@ -1,0 +1,19 @@
+package com.global.hr.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.global.hr.entity.Employee;
+import com.global.hr.entity.User;
+import com.global.hr.reposetory.EmployeeRepo;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private User user;
+	
+	
+}

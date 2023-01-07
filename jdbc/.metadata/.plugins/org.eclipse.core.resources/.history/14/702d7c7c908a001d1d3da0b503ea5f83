@@ -1,0 +1,8 @@
+package com.global.hr.reposetory;
+
+import org.springframework.data.repository.CrudRepository;
+import com.global.hr.entity.Employee;
+
+public interface EmployeeRepo extends CrudRepository<Employee, Long>{
+
+}

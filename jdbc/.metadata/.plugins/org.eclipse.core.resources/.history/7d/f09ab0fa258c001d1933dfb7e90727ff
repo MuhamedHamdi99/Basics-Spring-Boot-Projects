@@ -1,0 +1,17 @@
+package com.global.hr.entity;
+
+
+public class EmployeeReponse {
+	private Long id;
+
+	private String name;
+
+	private Double salary;
+
+	private Department department;
+
+	private User user;
+	
+	
+	
+}

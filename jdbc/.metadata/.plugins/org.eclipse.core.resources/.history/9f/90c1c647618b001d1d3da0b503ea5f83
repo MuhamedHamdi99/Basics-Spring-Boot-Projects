@@ -1,0 +1,40 @@
+package com.global.hr.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.global.hr.entity.Employee;
+import com.global.hr.service.EmployeeService;
+
+@RestController
+@RequestMapping("/empp")
+public class EmployeeController {
+
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@GetMapping("/{id}")
+	public Employee findByID(@PathVariable Long id) {
+		return employeeService.findByID(id);
+	}
+	
+
+	@PostMapping()
+	public Long insert(Employee emp) {
+		Employee ins = employeeService.insert(emp);
+		return ins.getId();
+		
+	}
+	@PutMapping()
+	public Employee update(@RequestBody Employee emp) {
+
+		return employeeService.update(emp);
+	}
+	
+}

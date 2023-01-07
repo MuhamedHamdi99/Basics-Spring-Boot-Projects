@@ -1,0 +1,13 @@
+package com.global.hr.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Employee {
+
+	
+	private Long employeeId;
+	private String name;
+	private Double salary;
+	
+}

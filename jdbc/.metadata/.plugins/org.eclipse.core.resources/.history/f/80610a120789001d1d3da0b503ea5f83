@@ -1,0 +1,46 @@
+package com.global.serves;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.global.model.Employee;
+import com.global.reposetry.EmployeeRepos;
+
+@Service
+public class EmployeeServes {
+
+	@Autowired
+	private EmployeeRepos employeeRepos;
+
+	
+public Long count() {
+		
+		return employeeRepos.count();
+	}
+
+public Employee findByID(@PathVariable Long id) {
+	return employeeRepos.findById(id).get();
+}
+	
+
+public List<Employee> find() {
+	
+	return (List<Employee>) employeeRepos.findAll();
+}
+	
+
+	public List<Employee> findByNameAndSalary(@Param("empName") String name,Double empSalary){
+		return employeeRepos.findByNameAndSalary(name, empSalary);
+	}
+	
+	public List<Employee> findByName(String name){
+		return employeeRepos.findByName(name);
+	}
+
+
+
+}

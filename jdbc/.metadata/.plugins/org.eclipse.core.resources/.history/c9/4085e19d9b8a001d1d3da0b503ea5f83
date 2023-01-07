@@ -1,0 +1,5 @@
+package com.global.hr.reposetory;
+
+public interface DepartmentRepo {
+
+}

@@ -1,0 +1,18 @@
+package com.global.hr.entity;
+
+
+
+import jakarta.persistence.*;
+
+@Entity
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	//@Column(" name in DB ")  use it if name in DB is not look like name in Entity
+ 	private String name;
+	private Double salary;
+	
+}

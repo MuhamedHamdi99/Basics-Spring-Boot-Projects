@@ -1,0 +1,75 @@
+package com.global.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.global.model.Employee;
+import com.global.reposetry.EmployeeRepos;
+
+@RestController
+@RequestMapping("emp")
+public class EmployeeController {
+
+	private EmployeeRepos employeeRepos;
+	@Autowired
+	public EmployeeController(EmployeeRepos employeeRepos) {
+		super();
+		this.employeeRepos = employeeRepos;
+	}
+
+
+@GetMapping("count")
+	public Long count() {
+		
+		return employeeRepos.count();
+	}
+	
+
+@GetMapping("/{id}")
+public Employee findByID(@PathVariable Long id) {
+	return employeeRepos.findById(id).get();
+}
+
+	
+ //@GetMapping("/")
+@RequestMapping(method = RequestMethod.GET,value = "/")
+public List<Employee> find() {
+	
+	return (List<Employee>) employeeRepos.findAll();
+}
+	
+	
+@PostMapping("/insert")
+public Employee insert(@RequestBody Employee em) {
+	return employeeRepos.save(em);
+}
+
+@PutMapping("/")
+public Employee UPdate(@RequestBody Employee em) {
+	return employeeRepos.save(em);
+}
+
+@GetMapping("/filterN/{name}")
+public List<Employee> FilterByName(@PathVariable String name) {
+	return employeeRepos.findByName(name);
+}
+
+
+@GetMapping("/filterNS/{name}/{salary}")
+public List<Employee> FilterByName_Salary(@PathVariable String name,@PathVariable Double salary) {
+	return employeeRepos.findByNameAndSalary(name, salary);
+}
+
+
+
+}

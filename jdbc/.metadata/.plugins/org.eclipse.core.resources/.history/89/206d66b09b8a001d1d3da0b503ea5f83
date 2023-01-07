@@ -1,0 +1,9 @@
+package com.global.hr.reposetory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.global.hr.entity.Employee;
+
+public interface DepartmentRepo extends JpaRepository<Employee, Long>{
+
+}

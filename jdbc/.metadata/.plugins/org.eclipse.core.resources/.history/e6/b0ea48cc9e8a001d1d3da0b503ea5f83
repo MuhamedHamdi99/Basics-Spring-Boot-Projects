@@ -1,0 +1,25 @@
+package com.global.hr.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.global.hr.entity.Employee;
+import com.global.hr.reposetory.EmployeeRepo;
+
+@Service
+public class EmployeeService {
+
+	@Autowired
+	private EmployeeRepo employeeRepo;
+	
+	public Employee findByID(Long id) {
+		return employeeRepo.findById(id).orElseThrow();
+	}
+	
+	public Employee insert(Employee emp) {
+		return employeeRepo.save(emp);
+	}
+	public Employee update(Employee emp) {
+		return employeeRepo.save(emp);
+	}
+}

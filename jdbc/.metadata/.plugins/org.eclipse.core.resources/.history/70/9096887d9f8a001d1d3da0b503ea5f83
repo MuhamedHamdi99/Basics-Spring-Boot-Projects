@@ -1,0 +1,33 @@
+package com.global.hr.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.global.hr.entity.Department;
+import com.global.hr.entity.Employee;
+
+@Service
+public class DepartmentService {
+
+	@Autowired
+	private DepartmentService departmentService;
+	
+	public Department findByID(Long id) {
+		return departmentService.findByID(id);
+	}
+	
+	
+
+	public Department insert(Department emp) {
+		return departmentService.save(emp);
+	}
+	public Department update(Employee emp) {
+		Department current = departmentService.findByID(emp.getId()).orElseThrow();
+		current.setName(emp.getName());
+		current.setSalary(emp.getSalary());
+		current.setDepartment(emp.getDepartment());
+
+		return departmentService.Department(current);
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.global.hr;
+
+public interface HRStatisticProjection {
+
+}
